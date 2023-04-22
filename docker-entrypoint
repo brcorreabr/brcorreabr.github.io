@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ ! -d .vscode ]; then
+  mkdir .vscode
+fi
+
+if [ ! -f .vscode/launch.json ]; then
+  cp example.launch.json .vscode/launch.json
+fi
+
+if [ ! -f .vscode/tasks.json ]; then
+  cp example.tasks.json .vscode/tasks.json
+fi
+
+docker-php-entrypoint
+
+apache2-foreground

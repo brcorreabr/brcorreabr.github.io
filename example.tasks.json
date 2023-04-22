@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "command": "docker-compose exec www sh -c 'sed -i \"/xdebug.mode=develop/c\\xdebug.mode=debug\" /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && /etc/init.d/apache2 reload'",
+      "label": "enable:xdebug"
+    },
+    {
+      "type": "shell",
+      "command": "docker-compose exec www sh -c 'sed -i \"/xdebug.mode=debug/c\\xdebug.mode=develop\" /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && /etc/init.d/apache2 reload'",
+      "label": "disable:xdebug"
+    }
+  ]
+}
